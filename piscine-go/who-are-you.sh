@@ -1,0 +1,1 @@
+curl -s https://zone01normandie.org/assets/superhero/all.json | jq '.[52] .name'

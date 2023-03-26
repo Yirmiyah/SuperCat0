@@ -1,0 +1,1 @@
+find -type f -name 'a*' -or -name '*z*' -or -name '*a!'
