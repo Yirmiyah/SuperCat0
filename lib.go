@@ -192,7 +192,6 @@ func LoopSingleFile(fileArraySelected string, selected int) {
 			os.Exit(1)
 		}
 	}
-
 }
 
 func Copy2Clipboard(path2File string) {

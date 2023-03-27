@@ -10,6 +10,7 @@ import (
 )
 
 var wkDir string
+var path string
 
 func Display(fichier []string, chemin []string) {
 
@@ -64,7 +65,7 @@ func Display(fichier []string, chemin []string) {
 
 			if key == keyboard.KeyTab {
 				folder, _ := getLastName2Path(chemin[selected])
-				path = ""
+				// path = ""
 
 				path, _ = os.Getwd()
 
@@ -112,6 +113,7 @@ func Display(fichier []string, chemin []string) {
 			}
 
 			path += "/" + chemin[selected]
+			fmt.Printf("chemin[selected]: %v\n", chemin[selected])
 
 			fSelected = displayFiles(fichier, selected, folder)
 
@@ -253,9 +255,9 @@ func displayFiles(fichier []string, selected int, folderName string) string {
 
 		if key == keyboard.KeyTab {
 
-			path = ""
+			// path = ""
 
-			path, _ = os.Getwd()
+			// path, _ = os.Getwd()
 
 			path += "/" + f[selected]
 			if strings.Contains(f[selected], ".") && !strings.Contains(f[selected], " ") {
