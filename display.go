@@ -17,17 +17,17 @@ func Display(fichier []string, chemin []string) {
 	currentFolder := "Current Folder ->"
 	var fSelected string
 	path, _ = os.Getwd()
-
+	/////////////////// DISPLAY LOOP ////////////////////////////
 	for {
 
-		_, key, err := keyboard.GetKey()
+		_, key, err := keyboard.GetKey() /* Getting Keyboard Keys */
 		if err != nil {
 			log.Fatal(err)
 		}
 
 		if key == keyboard.KeyArrowLeft {
 			if selected == 0 {
-				folder, _ := getLastName2Path(chemin[selected])
+				folder, _ := getLastName2Path(chemin[selected]) /* Deleting folder's name */
 				for range folder {
 					fmt.Print("\b \b")
 				}
@@ -36,11 +36,11 @@ func Display(fichier []string, chemin []string) {
 
 			} else {
 
-				folder, isWkFolder := getLastName2Path(chemin[selected])
+				folder, isWkFolder := getLastName2Path(chemin[selected]) /* Getting the folder's name */
 
 				if isWkFolder {
 
-					folder = currentFolder
+					folder = currentFolder /* if we are on the current folder display current folder's name */
 
 					for range folder {
 
@@ -68,7 +68,7 @@ func Display(fichier []string, chemin []string) {
 
 				path, _ = os.Getwd()
 
-				path += "/" + chemin[selected]
+				path += "/" + folder
 				fSelected = displayFiles(fichier, selected, folder)
 				os.Stdout.WriteString(fSelected)
 			}

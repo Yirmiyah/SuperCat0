@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/eiannone/keyboard"
 	"log"
 	"os"
 	"os/exec"
 	"strings"
+
+	"github.com/eiannone/keyboard"
 )
 
 func PrintAllFiles() {
