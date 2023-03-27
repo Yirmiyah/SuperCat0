@@ -65,7 +65,7 @@ func Display(fichier []string, chemin []string) {
 
 			if key == keyboard.KeyTab {
 				folder, _ := getLastName2Path(chemin[selected])
-				// path = ""
+				path = ""
 
 				path, _ = os.Getwd()
 
@@ -111,13 +111,15 @@ func Display(fichier []string, chemin []string) {
 			for range folder {
 				fmt.Print("\b \b")
 			}
-
+			path = ""
+			path, _ = os.Getwd()
 			path += "/" + chemin[selected]
 			fmt.Printf("chemin[selected]: %v\n", chemin[selected])
 
 			fSelected = displayFiles(fichier, selected, folder)
 
-			os.Stdout.WriteString(fSelected)
+			os.Stdout.WriteString(" " + fSelected)
+			os.Stdout.WriteString("\n")
 
 		}
 
@@ -255,13 +257,9 @@ func displayFiles(fichier []string, selected int, folderName string) string {
 
 		if key == keyboard.KeyTab {
 
-			// path = ""
-
-			// path, _ = os.Getwd()
-
 			path += "/" + f[selected]
 			if strings.Contains(f[selected], ".") && !strings.Contains(f[selected], " ") {
-				fmt.Printf("path: %v\n", path)
+				// fmt.Printf("path: %v\n", path)
 				Copy2Clipboard(path)
 				return f[selected]
 			}
